@@ -1,0 +1,532 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Whacky Pilot — Swipe to Steer. Pick Up. Power Up.</title>
+    <meta
+      name="description"
+      content="Whacky Pilot is a fast-paced arcade game inspired by Snake—reimagined with swipe-to-steer controls, colorful cartoon visuals, and tons of levels. Offline play, simple controls, and nonstop fun."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Whacky Pilot" />
+    <meta
+      property="og:description"
+      content="Swipe to steer, pick up passengers, dodge obstacles, and unlock new vehicles and worlds."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="IMG_3896.jpg" />
+
+    <style>
+      :root {
+        --bg: #0b1220;
+        --panel: rgba(255, 255, 255, 0.06);
+        --panel-2: rgba(255, 255, 255, 0.09);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.70);
+        --line: rgba(255, 255, 255, 0.14);
+        --brand: #ffd400;
+        --brand-2: #66b6ff;
+        --shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+        --radius: 18px;
+        --radius-lg: 26px;
+        --max: 1120px;
+        --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: var(--font);
+        color: var(--text);
+        background:
+          radial-gradient(1000px 700px at 15% 10%, rgba(102, 182, 255, 0.22), transparent 60%),
+          radial-gradient(900px 650px at 85% 15%, rgba(255, 212, 0, 0.18), transparent 55%),
+          radial-gradient(900px 650px at 50% 90%, rgba(140, 90, 255, 0.16), transparent 55%),
+          var(--bg);
+      }
+
+      a { color: inherit; text-decoration: none; }
+      .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 18px 60px; }
+
+      /* Top nav */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(14px);
+        background: rgba(11, 18, 32, 0.55);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        letter-spacing: 0.4px;
+      }
+      .brand-badge {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255,255,255,0.16);
+        background: var(--panel);
+        display: grid;
+        place-items: center;
+      }
+      .brand-badge img { width: 100%; height: 100%; object-fit: cover; }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .nav-links a { padding: 10px 10px; border-radius: 12px; }
+      .nav-links a:hover { background: rgba(255, 255, 255, 0.06); color: var(--text); }
+
+      .cta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        font-weight: 800;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: var(--panel);
+        color: var(--text);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      }
+      .btn:hover { background: var(--panel-2); transform: translateY(-1px); transition: 160ms ease; }
+      .btn.primary {
+        background: linear-gradient(135deg, rgba(255,212,0,0.95), rgba(255,212,0,0.72));
+        color: #1a1a1a;
+        border-color: rgba(255, 212, 0, 0.65);
+      }
+      .btn.primary:hover { filter: brightness(1.03); }
+      .pill {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.06);
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 42px 0 26px;
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 26px;
+        align-items: center;
+      }
+      .headline {
+        font-size: clamp(34px, 4.4vw, 58px);
+        line-height: 1.02;
+        margin: 14px 0 12px;
+        letter-spacing: -0.02em;
+      }
+      .subhead {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.55;
+        max-width: 58ch;
+      }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 6px; }
+      .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+      .hero-card {
+        border-radius: var(--radius-lg);
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.12);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        position: relative;
+      }
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(800px 420px at 50% 30%, rgba(102,182,255,0.22), transparent 60%),
+                    radial-gradient(650px 420px at 80% 80%, rgba(255,212,0,0.18), transparent 60%);
+        pointer-events: none;
+      }
+      .hero-shot {
+        display: grid;
+        place-items: center;
+        padding: 18px;
+      }
+      .hero-shot img {
+        width: 100%;
+        max-width: 320px;
+        border-radius: 26px;
+        border: 1px solid rgba(255,255,255,0.18);
+        box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+        background: rgba(255,255,255,0.06);
+      }
+      .hero-shot-note {
+        padding: 14px 18px 18px;
+        border-top: 1px solid rgba(255,255,255,0.10);
+        color: var(--muted);
+        font-weight: 700;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      /* Sections */
+      section { margin-top: 34px; }
+      .section-title {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 12px;
+      }
+      h2 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -0.01em;
+      }
+      .section-desc { margin: 0; color: var(--muted); max-width: 70ch; line-height: 1.55; }
+
+      /* Feature grid */
+      .grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .card {
+        border-radius: var(--radius);
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        padding: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      }
+      .card h3 { margin: 0 0 8px; font-size: 16px; letter-spacing: -0.01em; }
+      .card p { margin: 0; color: var(--muted); line-height: 1.55; font-size: 14px; }
+      .icon {
+        width: 40px; height: 40px;
+        border-radius: 14px;
+        display: grid; place-items: center;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        margin-bottom: 12px;
+        font-size: 18px;
+      }
+
+      /* Screenshots */
+      .shots {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .shot {
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.06);
+        box-shadow: 0 14px 40px rgba(0,0,0,0.28);
+        transition: transform 160ms ease;
+      }
+      .shot:hover { transform: translateY(-2px); }
+      .shot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        aspect-ratio: 9 / 16;
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 46px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+        align-items: center;
+      }
+      .fine { font-size: 13px; line-height: 1.5; }
+      .foot-links { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+      .foot-links a { padding: 8px 10px; border-radius: 12px; }
+      .foot-links a:hover { background: rgba(255,255,255,0.06); color: var(--text); }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .hero { grid-template-columns: 1fr; }
+        .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+      @media (max-width: 560px) {
+        .nav-links { display: none; }
+        .grid { grid-template-columns: 1fr; }
+        .shots { grid-template-columns: 1fr; }
+        .btn { width: 100%; }
+        .cta { width: 100%; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <div class="nav">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-badge" aria-hidden="true" title="Whacky Pilot">
+            <img src="IMG_3896.jpg" alt="" />
+          </div>
+          <div>
+            <div style="font-size: 14px; color: var(--muted); font-weight: 800;">WHACKY PILOT</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700;">Arcade • Offline • Swipe-to-steer</div>
+          </div>
+        </div>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#screenshots">Screenshots</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="cta">
+          <!-- Replace # with your real store links when ready -->
+          <a class="btn primary" href="#" aria-label="Download on the App Store (coming soon)"> App Store</a>
+          <a class="btn" href="#" aria-label="Get it on Google Play (coming soon)">▶ Google Play</a>
+        </div>
+      </div>
+    </div>
+
+    <main class="wrap">
+      <!-- HERO -->
+      <div class="hero" id="top">
+        <div>
+          <span class="pill">🚍 Inspired by classic Snake • Rebuilt for modern swipe steering</span>
+          <h1 class="headline">Swipe to steer.<br />Pick up.<br />Don’t crash.</h1>
+          <p class="subhead">
+            <strong>Whacky Pilot</strong> is a fast-paced arcade game where your vehicle grows longer with every pickup.
+            Dodge obstacles, master tight turns, and unlock new vehicles and worlds.
+            Easy to learn, hard to put down — and playable offline.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#screenshots">See Screenshots</a>
+            <a class="btn" href="#features">What’s Inside</a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="pill">✅ Offline play</span>
+            <span class="pill">✅ No account required</span>
+            <span class="pill">✅ Family-friendly</span>
+            <span class="pill">✅ Levels + unlocks</span>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="App preview">
+          <div class="hero-shot">
+            <img src="IMG_ECEB11AF20DD-1.jpeg" alt="Whacky Pilot gameplay screenshot" />
+          </div>
+          <div class="hero-shot-note">
+            <span>🎮 Fast arcade sessions</span>
+            <span>🧠 Skill-based steering</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURES -->
+      <section id="features">
+        <div class="section-title">
+          <h2>Why you’ll love Whacky Pilot</h2>
+        </div>
+        <p class="section-desc">
+          Built for quick fun and repeat play. Your ride grows, the speed ramps up, and the obstacles get sneaky.
+          Unlock levels by score and chase your personal best.
+        </p>
+
+        <div class="grid" style="margin-top: 14px;">
+          <div class="card">
+            <div class="icon">🌀</div>
+            <h3>Swipe-to-steer controls</h3>
+            <p>
+              Steer like you’re driving—smooth turns, quick reactions, and satisfying control that rewards skill.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Speed ramps up fast</h3>
+            <p>
+              Every pickup makes your vehicle longer and faster. Stay sharp or you’ll whack into something.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">🧱</div>
+            <h3>Random obstacles</h3>
+            <p>
+              Cones, roadblocks, and surprises keep each run fresh. Learn patterns and out-drive the chaos.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">🌎</div>
+            <h3>Vehicles + themed worlds</h3>
+            <p>
+              Start in the city and unlock more rides and environments as you hit score milestones.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">🏆</div>
+            <h3>Best score tracking</h3>
+            <p>
+              Your best run is saved on-device. Beat yourself, then beat yourself again.
+            </p>
+          </div>
+          <div class="card">
+            <div class="icon">📶</div>
+            <h3>Offline-friendly</h3>
+            <p>
+              No account required and no internet needed to play. Just tap “Play” and go.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREENSHOTS -->
+      <section id="screenshots">
+        <div class="section-title">
+          <h2>Screenshots</h2>
+          <span class="pill">📱 iOS preview</span>
+        </div>
+        <p class="section-desc">
+          Here’s a peek at the current build: splash, menu, levels, and gameplay.
+        </p>
+
+        <div class="shots" style="margin-top: 14px;">
+          <a class="shot" href="IMG_3895.jpg" target="_blank" rel="noreferrer">
+            <img src="IMG_3895.jpg" alt="Whacky Pilot splash screen" />
+          </a>
+          <a class="shot" href="IMG_3896.jpg" target="_blank" rel="noreferrer">
+            <img src="IMG_3896.jpg" alt="Whacky Pilot main menu screen" />
+          </a>
+          <a class="shot" href="IMG_3897.PNG" target="_blank" rel="noreferrer">
+            <img src="IMG_3897.PNG" alt="Whacky Pilot levels screen" />
+          </a>
+          <a class="shot" href="IMG_ECEB11AF20DD-1.jpeg" target="_blank" rel="noreferrer">
+            <img src="IMG_ECEB11AF20DD-1.jpeg" alt="Whacky Pilot gameplay screen" />
+          </a>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-title">
+          <h2>About the game</h2>
+        </div>
+        <p class="section-desc">
+          Whacky Pilot is an arcade-style game inspired by the classic “Snake” formula—reimagined with swipe steering and
+          modern, colorful visuals. Pick up passengers to grow longer, avoid obstacles (and yourself), and unlock new
+          vehicles and themes as your score climbs.
+        </p>
+
+        <div class="grid" style="margin-top: 14px;">
+          <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Simple goal, deep challenge</h3>
+            <p>Pick up, grow, and survive as the pace intensifies. Master control to reach new unlocks.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🛠️</div>
+            <h3>Made for mobile</h3>
+            <p>Quick sessions, clear UI, and performance-focused design for smooth gameplay on iPhone.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🛍️</div>
+            <h3>Store-ready setup</h3>
+            <p>Offline play, no account required, and an ad-supported model with optional upgrades.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="section-title">
+          <h2>FAQ</h2>
+        </div>
+        <div class="grid" style="margin-top: 14px;">
+          <div class="card">
+            <h3>Does Whacky Pilot need internet?</h3>
+            <p>No. You can play offline. (Some ad display may require connectivity, depending on ad availability.)</p>
+          </div>
+          <div class="card">
+            <h3>Do I need an account?</h3>
+            <p>No account required—jump in and play.</p>
+          </div>
+          <div class="card">
+            <h3>Is it family-friendly?</h3>
+            <p>Yes—bright cartoon visuals, simple controls, and no chat or user-generated content.</p>
+          </div>
+          <div class="card">
+            <h3>When is iOS launching?</h3>
+            <p>iOS is first. Android follows once the iOS version is stable and live.</p>
+          </div>
+          <div class="card">
+            <h3>What’s next?</h3>
+            <p>More vehicles, more themed worlds, and expanded level packs as the game grows.</p>
+          </div>
+          <div class="card">
+            <h3>Support</h3>
+            <p>Add your support email here (e.g., support@yourdomain.com) when ready.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="fine">
+          <strong>Whacky Pilot</strong> — © <span id="year"></span>. All rights reserved.<br />
+          <span style="color: rgba(255,255,255,0.55);">
+            Replace store links, support email, and policy links before publishing.
+          </span>
+        </div>
+        <div class="foot-links">
+          <!-- Replace these with your real URLs (privacy policy / terms) -->
+          <a href="#" aria-label="Privacy Policy (coming soon)">Privacy</a>
+          <a href="#" aria-label="Terms of Service (coming soon)">Terms</a>
+          <a href="#top" aria-label="Back to top">Back to top ↑</a>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
