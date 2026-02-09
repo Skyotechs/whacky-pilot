@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Whacky Pilot — EULA & Terms of Service</title>
+  <meta name="description" content="End User License Agreement (EULA) and Terms of Service for the Whacky Pilot mobile game by Skyology Technologies LLC." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.09);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --line:rgba(255,255,255,.14);
+      --brand:#ffd400;
+      --shadow:0 18px 45px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:980px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(900px 650px at 15% 10%, rgba(102,182,255,.20), transparent 60%),
+        radial-gradient(850px 600px at 85% 15%, rgba(255,212,0,.14), transparent 55%),
+        radial-gradient(900px 650px at 50% 90%, rgba(140,90,255,.14), transparent 55%),
+        var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(14px);
+      background: rgba(11,18,32,.62);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      font-weight:900;
+      letter-spacing:.4px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brand .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: var(--brand);
+      box-shadow: 0 0 0 6px rgba(255,212,0,.10);
+    }
+    .nav-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+    }
+    .nav-links a{
+      padding:8px 10px;
+      border-radius:12px;
+      text-decoration:none;
+    }
+    .nav-links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 60px;}
+    header{
+      margin-top:10px;
+      border-radius:26px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      padding:22px 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    header::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(800px 420px at 50% 30%, rgba(102,182,255,.20), transparent 60%),
+        radial-gradient(650px 420px at 80% 80%, rgba(255,212,0,.14), transparent 60%);
+      pointer-events:none;
+    }
+    .hdr{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    h1{
+      margin:0;
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height:1.08;
+      letter-spacing:-.02em;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-weight:700;
+      font-size:14px;
+      max-width:80ch;
+    }
+    .meta{
+      margin-top:10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .content{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    .toc{
+      position:sticky;
+      top:76px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+      padding:14px;
+    }
+    .toc h2{
+      margin:0 0 8px;
+      font-size:14px;
+      letter-spacing:-.01em;
+    }
+    .toc a{
+      display:block;
+      padding:9px 10px;
+      border-radius:12px;
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+      border:1px solid transparent;
+    }
+    .toc a:hover{
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      border-color: rgba(255,255,255,.10);
+    }
+
+    .panel{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+      padding:18px;
+    }
+    h2{
+      margin: 0 0 10px;
+      font-size:18px;
+      letter-spacing:-.01em;
+    }
+    h3{
+      margin: 16px 0 8px;
+      font-size:15px;
+      letter-spacing:-.01em;
+    }
+    p{margin:0 0 12px; color:var(--muted); font-weight:650}
+    ul{margin:0 0 14px 18px; color:var(--muted); font-weight:650}
+    li{margin:6px 0}
+    hr{
+      border:0;
+      border-top:1px solid rgba(255,255,255,.12);
+      margin:16px 0;
+    }
+    .notice{
+      background: rgba(255,212,0,.10);
+      border:1px solid rgba(255,212,0,.25);
+      color: rgba(255,255,255,.88);
+      padding:12px 12px;
+      border-radius: 14px;
+      font-weight:750;
+    }
+    footer{
+      margin-top:22px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.60);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .small{font-size:13px; color:rgba(255,255,255,.62); font-weight:650}
+    code{
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      padding: 2px 6px;
+      border-radius:10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.88);
+    }
+
+    @media (max-width: 900px){
+      .content{grid-template-columns:1fr}
+      .toc{position:relative; top:auto}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>WHACKY PILOT</span>
+      </div>
+      <nav class="nav-links" aria-label="Legal navigation">
+        <a href="#eula">EULA</a>
+        <a href="#tos">Terms</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#iap">In-App Purchases</a>
+        <a href="#arbitration">Arbitration</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <header>
+      <div class="hdr">
+        <h1>End User License Agreement (EULA) & Terms of Service</h1>
+        <p class="sub">
+          This page contains the End User License Agreement (“Agreement”) and Terms of Service for the Whacky Pilot mobile game (“Game”),
+          operated by <strong>Skyology Technologies LLC</strong>.
+        </p>
+        <div class="meta">
+          <span class="pill">Governing Law: New Jersey</span>
+          <span class="pill">Binding Arbitration</span>
+          <span class="pill">Non-Consumable IAPs</span>
+          <span class="pill">Offline-First Game</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <aside class="toc" aria-label="Table of contents">
+        <h2>Contents</h2>
+        <a href="#intro">1. Agreement Overview</a>
+        <a href="#eula">2. EULA</a>
+        <a href="#license">3. License Grant</a>
+        <a href="#restrictions">4. Restrictions</a>
+        <a href="#ownership">5. Ownership</a>
+        <a href="#digital">6. Digital Content</a>
+        <a href="#warranty">7. No Warranty</a>
+        <a href="#liability">8. Limitation of Liability</a>
+        <a href="#termination">9. Termination</a>
+        <a href="#apple">10. Apple Disclaimer</a>
+        <a href="#arbitration">11. Arbitration & Class Action Waiver</a>
+        <a href="#privacy">12. Privacy Summary</a>
+        <a href="#acceptable">13. Acceptable Use</a>
+        <a href="#iap">14. In-App Purchases & Ads</a>
+        <a href="#reset">15. Progress Reset</a>
+        <a href="#governing">16. Governing Law</a>
+      </aside>
+
+      <section class="panel" aria-label="EULA and Terms Content">
+        <div id="intro" class="notice">
+          By downloading, installing, or using the Game, you agree to be bound by this Agreement.
+        </div>
+
+        <h2 id="eula">2. End User License Agreement (EULA)</h2>
+        <p>
+          This End User License Agreement (“Agreement”) governs your use of the Whacky Pilot mobile game (“Game”), operated by Skyology Technologies LLC.
+          By downloading, installing, or using the Game, you agree to be bound by this Agreement.
+        </p>
+
+        <h3 id="license">3. License Grant</h3>
+        <p>
+          Skyology Technologies LLC grants you a limited, non-exclusive, non-transferable, revocable license to use Whacky Pilot
+          for personal, non-commercial entertainment purposes.
+        </p>
+
+        <h3 id="restrictions">4. Restrictions</h3>
+        <p>You may not:</p>
+        <ul>
+          <li>Copy, modify, redistribute, exploit, or create derivative works of the Game (except as permitted by law).</li>
+          <li>Reverse engineer, decompile, disassemble, or otherwise attempt to discover the source code of the Game.</li>
+          <li>Interfere with the normal operation of the Game or attempt to bypass security or access controls.</li>
+        </ul>
+
+        <h3 id="ownership">5. Ownership</h3>
+        <p>
+          The Game and all related intellectual property rights are owned by Skyology Technologies LLC.
+          This Agreement does not grant you any ownership rights.
+        </p>
+
+        <h3 id="digital">6. Digital Content (In-App Purchases)</h3>
+        <p>
+          All in-app purchases, including level unlocks and ad-free versions, are licensed—not sold—and are non-consumable.
+          Availability of purchased content may change due to technical or legal requirements.
+        </p>
+
+        <h3 id="warranty">7. No Warranty</h3>
+        <p>
+          The Game is provided “as is” and “as available,” without warranties of any kind, including warranties of performance,
+          availability, or error-free operation.
+        </p>
+
+        <h3 id="liability">8. Limitation of Liability</h3>
+        <p>
+          To the maximum extent permitted by law, Skyology Technologies LLC shall not be liable for any indirect, incidental,
+          consequential, or special damages arising out of or related to your use of the Game, including bugs, crashes,
+          or loss of progress.
+        </p>
+
+        <h3 id="termination">9. Termination</h3>
+        <p>
+          This license may be terminated at any time if you violate this Agreement or other applicable terms.
+          Upon termination, you must stop using the Game.
+        </p>
+
+        <h3 id="apple">10. Apple Disclaimer</h3>
+        <p>
+          Apple Inc. is not a party to this Agreement and is not responsible for the Game or its maintenance or support.
+        </p>
+
+        <h3 id="arbitration">11. Arbitration & Class Action Waiver</h3>
+        <p>
+          Any dispute arising out of or relating to this Agreement shall be resolved by binding arbitration in the State of New Jersey.
+          You waive any right to participate in a class action.
+        </p>
+
+        <hr />
+
+        <h2 id="tos">Terms of Service & Privacy Terms</h2>
+
+        <h3 id="privacy">12. Privacy Summary</h3>
+        <p><strong>Information We Collect:</strong> Whacky Pilot collects minimal, non-personal data including anonymized device information, gameplay progress, and in-app purchase records.</p>
+        <p><strong>Information We Do Not Collect:</strong> We do not collect names, email addresses, phone numbers, location data, voice input, or chat content.</p>
+        <p><strong>Advertising & Analytics:</strong> The game displays banner advertisements using Google AdMob and uses analytics and crash reporting tools to improve performance. Whacky Pilot does not engage in cross-app tracking.</p>
+        <p><strong>Children’s Privacy:</strong> Whacky Pilot is intended for players ages 9 and older. The game is not directed to children under 13 and does not knowingly collect personal information from children.</p>
+        <p><strong>Data Storage:</strong> All data is stored securely using Firebase.</p>
+        <p><strong>Data Sharing:</strong> We do not sell user data.</p>
+
+        <h3 id="acceptable">13. Acceptable Use</h3>
+        <p>Players may not:</p>
+        <ul>
+          <li>Cheat, hack, exploit bugs, or interfere with normal gameplay.</li>
+          <li>Modify the game, bypass restrictions, or attempt to gain unauthorized access.</li>
+          <li>Use the Game in a manner that is unlawful or that violates this Agreement.</li>
+        </ul>
+
+        <h3 id="iap">14. In-App Purchases & Advertisements</h3>
+        <p>
+          <strong>In-App Purchases:</strong> All in-app purchases are non-consumable digital goods, including individual level unlocks,
+          level packs, and a one-time all-levels ad-free unlock. All refunds are handled exclusively by Apple or Google.
+        </p>
+        <p>
+          <strong>Advertisements:</strong> The game may display banner advertisements unless an ad-free version is purchased.
+        </p>
+
+        <h3 id="reset">15. Progress Reset</h3>
+        <p>
+          Skyology Technologies LLC reserves the right to reset player progress in cases of abuse, cheating, or technical issues.
+        </p>
+
+        <h3 id="governing">16. Governing Law</h3>
+        <p>
+          This Agreement is governed by the laws of the State of New Jersey.
+        </p>
+
+        <footer>
+          <div>
+            <strong>Whacky Pilot</strong> — Skyology Technologies LLC<br />
+            <span class="small">© <span id="year"></span>. All rights reserved.</span>
+          </div>
+          <div class="small">
+            Tip: Link this page from your app listing and in-app “Legal” menu.<br />
+            File name suggestion: <code>legal.html</code>
+          </div>
+        </footer>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
