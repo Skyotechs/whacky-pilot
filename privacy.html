@@ -1,418 +1,314 @@
-<!doctype html>
+html = """<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Whacky Pilot — EULA & Terms of Service</title>
-  <meta name="description" content="End User License Agreement (EULA) and Terms of Service for the Whacky Pilot mobile game by Skyology Technologies LLC." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sparkle Car Wash – Legal Agreement</title>
+  <meta name="description" content="Sparkle Car Wash Legal Agreement, including EULA, Terms of Service, Privacy Policy, Vendor Service Agreement, and Arbitration Terms." />
   <style>
     :root{
-      --bg:#0b1220;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.09);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.70);
-      --line:rgba(255,255,255,.14);
-      --brand:#ffd400;
-      --shadow:0 18px 45px rgba(0,0,0,.45);
+      --bg:#0b1020;
+      --panel:#121933;
+      --text:#e9eefc;
+      --muted:#b9c2de;
+      --accent:#79d0ff;
+      --border:rgba(255,255,255,.12);
+      --max:1000px;
+      --shadow:0 14px 36px rgba(0,0,0,.28);
       --radius:18px;
-      --max:980px;
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:var(--font);
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#0a1020 0%, #0d1430 100%);
       color:var(--text);
-      background:
-        radial-gradient(900px 650px at 15% 10%, rgba(102,182,255,.20), transparent 60%),
-        radial-gradient(850px 600px at 85% 15%, rgba(255,212,0,.14), transparent 55%),
-        radial-gradient(900px 650px at 50% 90%, rgba(140,90,255,.14), transparent 55%),
-        var(--bg);
-      line-height:1.6;
+      line-height:1.65;
     }
-    a{color:inherit}
-    .nav{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter: blur(14px);
-      background: rgba(11,18,32,.62);
-      border-bottom:1px solid var(--line);
-    }
-    .nav-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-    }
-    .brand{
-      font-weight:900;
-      letter-spacing:.4px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .brand .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: var(--brand);
-      box-shadow: 0 0 0 6px rgba(255,212,0,.10);
-    }
-    .nav-links{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      color:var(--muted);
-      font-weight:700;
-      font-size:13px;
-    }
-    .nav-links a{
-      padding:8px 10px;
-      border-radius:12px;
-      text-decoration:none;
-    }
-    .nav-links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 60px;}
-    header{
-      margin-top:10px;
-      border-radius:26px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 72px}
+    .hero{
+      background:linear-gradient(180deg, rgba(121,208,255,.12), rgba(121,208,255,.04));
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:28px;
       box-shadow:var(--shadow);
-      padding:22px 18px;
-      position:relative;
-      overflow:hidden;
-    }
-    header::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(800px 420px at 50% 30%, rgba(102,182,255,.20), transparent 60%),
-        radial-gradient(650px 420px at 80% 80%, rgba(255,212,0,.14), transparent 60%);
-      pointer-events:none;
-    }
-    .hdr{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-    h1{
-      margin:0;
-      font-size: clamp(28px, 3.6vw, 44px);
-      line-height:1.08;
-      letter-spacing:-.02em;
-    }
-    .sub{
-      margin:0;
-      color:var(--muted);
-      font-weight:700;
-      font-size:14px;
-      max-width:80ch;
-    }
-    .meta{
-      margin-top:10px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color:var(--muted);
-      font-size:13px;
-      font-weight:800;
-    }
-
-    .content{
       margin-top:18px;
-      display:grid;
-      grid-template-columns: 280px 1fr;
-      gap:14px;
-      align-items:start;
     }
+    h1,h2,h3{line-height:1.2;margin:0 0 14px}
+    h1{font-size:clamp(2rem,4vw,2.8rem)}
+    h2{
+      font-size:1.45rem;
+      margin-top:34px;
+      padding-top:12px;
+      border-top:1px solid var(--border);
+    }
+    h3{font-size:1.02rem;margin-top:22px}
+    p{margin:0 0 14px;color:var(--text)}
+    .muted{color:var(--muted)}
     .toc{
-      position:sticky;
-      top:76px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 10px 30px rgba(0,0,0,.22);
-      padding:14px;
-    }
-    .toc h2{
-      margin:0 0 8px;
-      font-size:14px;
-      letter-spacing:-.01em;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:10px;
+      margin-top:16px;
     }
     .toc a{
       display:block;
-      padding:9px 10px;
-      border-radius:12px;
       text-decoration:none;
-      color:var(--muted);
-      font-weight:800;
-      font-size:13px;
-      border:1px solid transparent;
-    }
-    .toc a:hover{
-      background: rgba(255,255,255,.06);
       color:var(--text);
-      border-color: rgba(255,255,255,.10);
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px 14px;
     }
-
-    .panel{
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 10px 30px rgba(0,0,0,.22);
-      padding:18px;
+    .toc a:hover{border-color:rgba(121,208,255,.55); color:#fff}
+    .section{
+      background:rgba(255,255,255,.035);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      margin-top:20px;
+      box-shadow:var(--shadow);
     }
-    h2{
-      margin: 0 0 10px;
-      font-size:18px;
-      letter-spacing:-.01em;
-    }
-    h3{
-      margin: 16px 0 8px;
-      font-size:15px;
-      letter-spacing:-.01em;
-    }
-    p{margin:0 0 12px; color:var(--muted); font-weight:650}
-    ul{margin:0 0 14px 18px; color:var(--muted); font-weight:650}
-    li{margin:6px 0}
-    hr{
-      border:0;
-      border-top:1px solid rgba(255,255,255,.12);
-      margin:16px 0;
-    }
-    .notice{
-      background: rgba(255,212,0,.10);
-      border:1px solid rgba(255,212,0,.25);
-      color: rgba(255,255,255,.88);
-      padding:12px 12px;
-      border-radius: 14px;
-      font-weight:750;
-    }
-    footer{
-      margin-top:22px;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.12);
-      color: rgba(255,255,255,.60);
-      font-size:13px;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .small{font-size:13px; color:rgba(255,255,255,.62); font-weight:650}
-    code{
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      padding: 2px 6px;
+    ul{margin:8px 0 16px 22px}
+    li{margin:4px 0;color:var(--text)}
+    .note{
+      background:rgba(121,208,255,.1);
+      border-left:4px solid var(--accent);
+      padding:12px 14px;
       border-radius:10px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 12.5px;
-      color: rgba(255,255,255,.88);
+      margin:14px 0 18px;
+      color:var(--text);
     }
-
-    @media (max-width: 900px){
-      .content{grid-template-columns:1fr}
-      .toc{position:relative; top:auto}
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 16px;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:.96rem;
+    }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(121,208,255,.12);
+      border:1px solid rgba(121,208,255,.25);
+      color:#dff5ff;
+      margin:4px 8px 0 0;
+      font-size:.9rem;
+    }
+    .footer{
+      margin-top:30px;
+      color:var(--muted);
+      font-size:.95rem;
+      text-align:center;
+    }
+    @media (max-width:700px){
+      .hero,.section{padding:18px}
     }
   </style>
 </head>
-
 <body>
-  <div class="nav">
-    <div class="nav-inner">
-      <div class="brand">
-  <span class="dot" aria-hidden="true"></span>
-  <a
-    href="https://whackypilot.com/"
-    style="text-decoration: none; color: inherit;"
-    aria-label="Whacky Pilot official website"
-  >
-    WHACKY PILOT
-  </a>
-</div>
-
-      <nav class="nav-links" aria-label="Legal navigation">
-        <a href="#eula">EULA</a>
-        <a href="#tos">Terms</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#iap">In-App Purchases</a>
-        <a href="#arbitration">Arbitration</a>
-      </nav>
-    </div>
-  </div>
-
-  <main class="wrap">
-    <header>
-      <div class="hdr">
-        <h1>End User License Agreement (EULA) & Terms of Service</h1>
-        <p class="sub">
-          This page contains the End User License Agreement (“Agreement”) and Terms of Service for the Whacky Pilot mobile game (“Game”),
-          operated by <strong>Skyology Technologies LLC</strong>.
-        </p>
-        <div class="meta">
-          <span class="pill">Governing Law: New Jersey</span>
-          <span class="pill">Binding Arbitration</span>
-          <span class="pill">Non-Consumable IAPs</span>
-          <span class="pill">Offline-First Game</span>
-        </div>
+  <div class="wrap">
+    <header class="hero">
+      <div class="pill">Legal Page</div>
+      <div class="pill">App + Web</div>
+      <h1>Sparkle Car Wash – Legal Agreement</h1>
+      <p class="muted">
+        This page contains the legal terms for Sparkle Car Wash, including the End User License Agreement,
+        Terms of Service, Privacy Policy, Vendor Service Agreement, and dispute resolution terms.
+      </p>
+      <div class="meta">
+        <div><strong>Operator:</strong> Skyotechs LLC</div>
+        <div><strong>Address:</strong> 221 River St., Hoboken, NJ 07030</div>
+        <div><strong>Effective Date:</strong> 2/14/21</div>
       </div>
+      <nav class="toc" aria-label="Table of contents">
+        <a href="#introduction">Introduction</a>
+        <a href="#eula">End User License Agreement</a>
+        <a href="#tos">General Terms of Service</a>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#vendor">Vendor Service Agreement</a>
+        <a href="#arbitration">Dispute Resolution</a>
+        <a href="#governing-law">Governing Law</a>
+        <a href="#entire-agreement">Entire Agreement</a>
+      </nav>
     </header>
 
-    <div class="content">
-      <aside class="toc" aria-label="Table of contents">
-        <h2>Contents</h2>
-        <a href="#intro">1. Agreement Overview</a>
-        <a href="#eula">2. EULA</a>
-        <a href="#license">3. License Grant</a>
-        <a href="#restrictions">4. Restrictions</a>
-        <a href="#ownership">5. Ownership</a>
-        <a href="#digital">6. Digital Content</a>
-        <a href="#warranty">7. No Warranty</a>
-        <a href="#liability">8. Limitation of Liability</a>
-        <a href="#termination">9. Termination</a>
-        <a href="#apple">10. Apple Disclaimer</a>
-        <a href="#arbitration">11. Arbitration & Class Action Waiver</a>
-        <a href="#privacy">12. Privacy Summary</a>
-        <a href="#acceptable">13. Acceptable Use</a>
-        <a href="#iap">14. In-App Purchases & Ads</a>
-        <a href="#reset">15. Progress Reset</a>
-        <a href="#governing">16. Governing Law</a>
-      </aside>
+    <section id="introduction" class="section">
+      <h2>Introduction</h2>
+      <p>This <strong>Legal Agreement</strong> (“<strong>Agreement</strong>”) governs access to and use of the <strong>Sparkle Car Wash</strong> mobile application, website, and related services (collectively, the “<strong>Platform</strong>” or “<strong>App</strong>”), operated by <strong>Skyotechs LLC</strong>, located at <strong>221 River St., Hoboken, NJ 07030</strong> (“<strong>Sparkle</strong>,” “<strong>Company</strong>,” “<strong>we</strong>,” “<strong>us</strong>,” or “<strong>our</strong>”).</p>
+      <p>By accessing, downloading, creating an account, browsing, requesting services through, offering services through, or otherwise using the Platform, you agree to be legally bound by this Agreement.</p>
+      <p>If you do not agree, you must not use the Platform.</p>
+    </section>
 
-      <section class="panel" aria-label="EULA and Terms Content">
-        <div id="intro" class="notice">
-          By downloading, installing, or using the Game, you agree to be bound by this Agreement.
-        </div>
+    <section id="eula" class="section">
+      <h2>1. End User License Agreement (EULA)</h2>
+      <h3>1.1 License Grant</h3>
+      <p>Subject to your compliance with this Agreement, Skyotechs LLC grants you a <strong>limited, revocable, non-exclusive, non-transferable, non-sublicensable license</strong> to access and use the Sparkle Car Wash App for your <strong>personal, non-commercial use</strong> as a user or vendor of the Platform.</p>
+      <h3>1.2 Restrictions</h3>
+      <ul>
+        <li>copy, modify, reproduce, distribute, republish, transmit, display, perform, lease, sell, sublicense, or commercially exploit the App;</li>
+        <li>reverse engineer, decompile, disassemble, or attempt to derive source code;</li>
+        <li>interfere with or disrupt the App’s operation, servers, or security;</li>
+        <li>use bots, scraping tools, automation, or unauthorized access methods;</li>
+        <li>use the App for unlawful, fraudulent, deceptive, harmful, or prohibited purposes.</li>
+      </ul>
+      <h3>1.3 Ownership</h3>
+      <p>The Platform, App, design, branding, content, code, software, trademarks, workflows, and related intellectual property are and remain the exclusive property of Skyotechs LLC and its licensors.</p>
+      <h3>1.4 No Warranty</h3>
+      <p>THE APP AND PLATFORM ARE PROVIDED <strong>“AS IS”</strong> AND <strong>“AS AVAILABLE”</strong> WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION WARRANTIES OF merchantability, fitness for a particular purpose, non-infringement, availability, reliability, or uninterrupted service.</p>
+      <h3>1.5 Limitation of Liability</h3>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, SKYOTECHS LLC SHALL NOT BE LIABLE FOR ANY indirect, incidental, consequential, punitive, exemplary, or special damages arising out of or relating to your use of the App or Platform.</p>
+      <h3>1.6 Liability Cap</h3>
+      <p>To the fullest extent permitted by law, the total cumulative liability of Skyotechs LLC arising out of or relating to the App, Platform, or this Agreement shall not exceed the greater of:</p>
+      <ul>
+        <li>the total amount paid by you to Sparkle in the twelve (12) months preceding the claim, or</li>
+        <li>US $100.00</li>
+      </ul>
+      <h3>1.7 Apple / Google Disclaimer</h3>
+      <p>If the App is downloaded through Apple App Store or Google Play, you acknowledge that Apple and Google are not parties to this Agreement, are not responsible for maintenance or support, and any claims relating to the App must be directed solely to Skyotechs LLC.</p>
+      <h3>1.8 Suspension / Termination</h3>
+      <p>We may suspend, restrict, deactivate, or terminate your access to the App at any time, with or without notice, for any reason, including suspected fraud, unsafe conduct, abuse, misuse, or legal/compliance concerns.</p>
+    </section>
 
-        <h2 id="eula">2. End User License Agreement (EULA)</h2>
-        <p>
-          This End User License Agreement (“Agreement”) governs your use of the Whacky Pilot mobile game (“Game”), operated by Skyology Technologies LLC.
-          By downloading, installing, or using the Game, you agree to be bound by this Agreement.
-        </p>
+    <section id="tos" class="section">
+      <h2>2. General Terms of Service</h2>
+      <h3>2.1 Marketplace Only</h3>
+      <p>Sparkle Car Wash is a <strong>technology marketplace platform only</strong>. Sparkle does not provide car wash services, does not employ washers, does not supervise or control service performance, does not guarantee service completion, and is not a party to the service transaction between users and vendors.</p>
+      <h3>2.2 Independent Contractors</h3>
+      <p>All car washers / vendors using the Platform are <strong>independent contractors</strong> and are not employees, agents, joint venturers, franchisees, or partners of Skyotechs LLC.</p>
+      <h3>2.3 No Payment Processing / No Refund Responsibility</h3>
+      <p>Unless expressly stated otherwise in writing, Sparkle does not process payments, hold funds, issue refunds, or act as a payment intermediary between users and vendors. All pricing, payment arrangements, refunds, disputes, and collection issues are strictly between the user and vendor.</p>
+      <h3>2.4 No Service Guarantee</h3>
+      <p>Sparkle does not guarantee service quality, timeliness, cleanliness results, vendor attendance, vendor professionalism, property protection, or customer satisfaction.</p>
+      <h3>2.5 Property / Vehicle / Safety Disclaimer</h3>
+      <p>By using the Platform, you acknowledge that in-person services involving vehicles, equipment, chemicals, water, and physical presence may involve risk. Sparkle disclaims all liability arising from or relating to property damage, vehicle damage, scratches, paint issues, interior damage, personal injury, slip/fall incidents, theft, trespass claims, unsafe premises, unsafe vendor conduct, unsafe user conduct, chemical exposure, or any other service-related incident.</p>
+      <h3>2.6 User Responsibilities</h3>
+      <ul>
+        <li>provide accurate location and vehicle information,</li>
+        <li>ensure lawful access to the vehicle and service location,</li>
+        <li>secure valuables,</li>
+        <li>remove sensitive or fragile property from vehicles,</li>
+        <li>use reasonable caution in all in-person interactions.</li>
+      </ul>
+      <h3>2.7 Reviews and Ratings</h3>
+      <p>Users and vendors may submit ratings, reviews, and feedback. You agree not to post reviews that are false, defamatory, abusive, retaliatory, harassing, misleading, or unlawful. Sparkle does not guarantee the accuracy, truthfulness, or fairness of any review or rating.</p>
+      <h3>2.8 Assumption of Risk</h3>
+      <p>You voluntarily assume all risks arising from your interactions with other users and vendors, including in-person service interactions, vehicle access, scheduling, and communications.</p>
+      <h3>2.9 Force Majeure</h3>
+      <p>Sparkle shall not be liable for any delay, failure, cancellation, interruption, or inability to provide access to the Platform resulting from events beyond its reasonable control, including weather, flooding, cyberattacks, app outages, telecommunications failures, infrastructure failures, vendor unavailability, strikes, acts of God, or governmental actions.</p>
+    </section>
 
-        <h3 id="license">3. License Grant</h3>
-        <p>
-          Skyology Technologies LLC grants you a limited, non-exclusive, non-transferable, revocable license to use Whacky Pilot
-          for personal, non-commercial entertainment purposes.
-        </p>
+    <section id="privacy" class="section">
+      <h2>3. Privacy Policy</h2>
+      <h3>3.1 Operator</h3>
+      <p>Sparkle Car Wash is operated by <strong>Skyotechs LLC</strong>, 221 River St., Hoboken, NJ 07030.</p>
+      <h3>3.2 Information We Collect – Users</h3>
+      <ul>
+        <li>name</li>
+        <li>email address</li>
+        <li>phone number</li>
+        <li>vehicle information</li>
+        <li>precise location data</li>
+        <li>account and usage data</li>
+      </ul>
+      <h3>3.3 Information We Collect – Vendors</h3>
+      <ul>
+        <li>name</li>
+        <li>email address</li>
+        <li>phone number</li>
+        <li>photo identification</li>
+        <li>insurance information</li>
+        <li>background check information</li>
+        <li>vehicle information</li>
+        <li>location data</li>
+        <li>account and usage data</li>
+      </ul>
+      <h3>3.4 Location Data</h3>
+      <p>Precise GPS location is used to facilitate service matching, location confirmation, and active service requests. Location data may be collected while the app is in use, during active requests, and as otherwise disclosed in device permission settings. If you disable location access, certain core functionality may not work.</p>
+      <h3>3.5 Data Storage &amp; Security</h3>
+      <p>Data may be stored using third-party hosting, infrastructure, database, analytics, and software providers, including cloud-hosted database services. While we use commercially reasonable safeguards, <strong>no method of transmission or storage is 100% secure</strong>, and we do not guarantee absolute security.</p>
+      <h3>3.6 No Sale of Data</h3>
+      <p>Sparkle does not sell personal information to third parties for monetary consideration.</p>
+      <h3>3.7 Data Sharing</h3>
+      <ul>
+        <li>between users and vendors as necessary to facilitate services,</li>
+        <li>with service providers and infrastructure vendors,</li>
+        <li>when required by law,</li>
+        <li>to investigate fraud, abuse, safety incidents, or legal claims,</li>
+        <li>or in connection with a merger, sale, financing, or restructuring.</li>
+      </ul>
+      <h3>3.8 Data Retention</h3>
+      <p>We retain data for as long as reasonably necessary to operate the Platform, maintain records, resolve disputes, enforce agreements, comply with law, and investigate fraud or safety concerns.</p>
+      <h3>3.9 Data Deletion</h3>
+      <p>Users and vendors may request account deletion, subject to legal retention obligations, fraud prevention needs, dispute resolution, and business recordkeeping requirements.</p>
+      <h3>3.10 Children / Age Restriction</h3>
+      <p>Sparkle Car Wash is intended only for users who are at least <strong>16 years old</strong>. No person under age 16 may use the Platform.</p>
+      <h3>3.11 Governing Law</h3>
+      <p>This Privacy Policy shall be governed by the laws of the State of New Jersey.</p>
+    </section>
 
-        <h3 id="restrictions">4. Restrictions</h3>
-        <p>You may not:</p>
-        <ul>
-          <li>Copy, modify, redistribute, exploit, or create derivative works of the Game (except as permitted by law).</li>
-          <li>Reverse engineer, decompile, disassemble, or otherwise attempt to discover the source code of the Game.</li>
-          <li>Interfere with the normal operation of the Game or attempt to bypass security or access controls.</li>
-        </ul>
+    <section id="vendor" class="section">
+      <h2>4. Vendor Service Agreement</h2>
+      <h3>4.1 Independent Contractor Status</h3>
+      <p>Vendors are independent contractors and are not employees, agents, or representatives of Skyotechs LLC. Nothing in this Agreement creates employment, agency, joint venture, franchise, partnership, or fiduciary relationship.</p>
+      <h3>4.2 Vendor Responsibilities</h3>
+      <ul>
+        <li>setting pricing,</li>
+        <li>accepting or declining work,</li>
+        <li>bringing their own equipment, chemicals, supplies, and transportation,</li>
+        <li>complying with all laws and licensing requirements,</li>
+        <li>performing services safely,</li>
+        <li>communicating professionally,</li>
+        <li>resolving service issues directly with users.</li>
+      </ul>
+      <h3>4.3 Vendor Insurance / Legal Compliance</h3>
+      <p>Vendors are solely responsible for maintaining any insurance, licenses, permits, registrations, or legal authorizations required by applicable law or by the nature of the services they perform. Sparkle does not guarantee or verify ongoing legal compliance by vendors.</p>
+      <h3>4.4 Background Checks / Screening Disclaimer</h3>
+      <p>If Sparkle uses or references screening, verification, or background-check-related information, such information is provided solely for platform safety and screening purposes and does not constitute a guarantee of safety, trustworthiness, competence, or future conduct.</p>
+      <h3>4.5 Payments</h3>
+      <p>Unless otherwise stated in writing, vendors are solely responsible for collecting payment, handling refunds, resolving payment disputes, and addressing chargebacks or collection issues.</p>
+      <h3>4.6 Vendor Assumption of Risk</h3>
+      <p>Vendors acknowledge and assume all risks arising from traveling to user locations, entering private or public property, using equipment and chemicals, interacting with users, and performing services.</p>
+      <h3>4.7 Indemnification</h3>
+      <p>Vendors agree to defend, indemnify, and hold harmless Skyotechs LLC and its owners, officers, affiliates, contractors, and agents from and against any claims, liabilities, damages, losses, costs, and expenses (including attorneys’ fees) arising from or relating to vendor conduct, vendor negligence, vendor omissions, vendor service performance, damage claims, injury claims, property claims, employment claims, tax claims, regulatory violations, or disputes with users.</p>
+      <h3>4.8 Suspension / Removal</h3>
+      <p>Sparkle may suspend, restrict, deactivate, or permanently remove vendors from the Platform at any time, with or without notice, for any reason, including safety concerns, fraud, complaints, legal risk, or suspected policy violations.</p>
+      <h3>4.9 No Earnings Guarantee</h3>
+      <p>Sparkle makes no guarantee regarding vendor earnings, demand, request volume, bookings, tips, profitability, or continued platform access.</p>
+    </section>
 
-        <h3 id="ownership">5. Ownership</h3>
-        <p>
-          The Game and all related intellectual property rights are owned by Skyology Technologies LLC.
-          This Agreement does not grant you any ownership rights.
-        </p>
+    <section id="arbitration" class="section">
+      <h2>5. Dispute Resolution / Arbitration / Class Action Waiver</h2>
+      <h3>5.1 Binding Arbitration</h3>
+      <p>Except where prohibited by law, any dispute, claim, or controversy arising out of or relating to the App, the Platform, this Agreement, any vendor relationship, any user-vendor interaction, any account issue, any privacy issue, any service-related dispute, or any platform-related claim shall be resolved exclusively by <strong>binding individual arbitration</strong>.</p>
+      <h3>5.2 Arbitration Forum</h3>
+      <p>Arbitration shall be conducted in the <strong>State of New Jersey</strong> by a <strong>single arbitrator</strong> under the rules of the <strong>American Arbitration Association (AAA)</strong>.</p>
+      <h3>5.3 Class Action Waiver</h3>
+      <p>You waive any right to participate in class actions, collective actions, representative actions, mass arbitrations, or jury trials.</p>
+      <h3>5.4 Attorneys’ Fees</h3>
+      <p>Each party shall bear its own legal fees and costs unless otherwise required by law or awarded by the arbitrator.</p>
+    </section>
 
-        <h3 id="digital">6. Digital Content (In-App Purchases)</h3>
-        <p>
-          All in-app purchases, including level unlocks and ad-free versions, are licensed—not sold—and are non-consumable.
-          Availability of purchased content may change due to technical or legal requirements.
-        </p>
+    <section id="governing-law" class="section">
+      <h2>6. Governing Law</h2>
+      <p>This Agreement shall be governed by and construed in accordance with the laws of the <strong>State of New Jersey</strong>, without regard to conflict of law principles.</p>
+    </section>
 
-        <h3 id="warranty">7. No Warranty</h3>
-        <p>
-          The Game is provided “as is” and “as available,” without warranties of any kind, including warranties of performance,
-          availability, or error-free operation.
-        </p>
+    <section id="entire-agreement" class="section">
+      <h2>7. Entire Agreement</h2>
+      <p>This Agreement constitutes the <strong>entire agreement</strong> between you and Skyotechs LLC regarding Sparkle Car Wash and supersedes all prior or contemporaneous discussions, understandings, representations, and agreements, whether written or oral.</p>
+      <div class="note">This legal page is ready for website deployment and can also be used as the source page for App Store and Google Play legal links.</div>
+    </section>
 
-        <h3 id="liability">8. Limitation of Liability</h3>
-        <p>
-          To the maximum extent permitted by law, Skyology Technologies LLC shall not be liable for any indirect, incidental,
-          consequential, or special damages arising out of or related to your use of the Game, including bugs, crashes,
-          or loss of progress.
-        </p>
-
-        <h3 id="termination">9. Termination</h3>
-        <p>
-          This license may be terminated at any time if you violate this Agreement or other applicable terms.
-          Upon termination, you must stop using the Game.
-        </p>
-
-        <h3 id="apple">10. Apple Disclaimer</h3>
-        <p>
-          Apple Inc. is not a party to this Agreement and is not responsible for the Game or its maintenance or support.
-        </p>
-
-        <h3 id="arbitration">11. Arbitration & Class Action Waiver</h3>
-        <p>
-          Any dispute arising out of or relating to this Agreement shall be resolved by binding arbitration in the State of New Jersey.
-          You waive any right to participate in a class action.
-        </p>
-
-        <hr />
-
-        <h2 id="tos">Terms of Service & Privacy Terms</h2>
-
-        <h3 id="privacy">12. Privacy Summary</h3>
-        <p><strong>Information We Collect:</strong> Whacky Pilot collects minimal, non-personal data including anonymized device information, gameplay progress, and in-app purchase records.</p>
-        <p><strong>Information We Do Not Collect:</strong> We do not collect names, email addresses, phone numbers, location data, voice input, or chat content.</p>
-        <p><strong>Advertising & Analytics:</strong> The game displays banner advertisements using Google AdMob and uses analytics and crash reporting tools to improve performance. Whacky Pilot does not engage in cross-app tracking.</p>
-        <p><strong>Children’s Privacy:</strong> Whacky Pilot is intended for players ages 9 and older. The game is not directed to children under 13 and does not knowingly collect personal information from children.</p>
-        <p><strong>Data Storage:</strong> All data is stored securely using Firebase.</p>
-        <p><strong>Data Sharing:</strong> We do not sell user data.</p>
-
-        <h3 id="acceptable">13. Acceptable Use</h3>
-        <p>Players may not:</p>
-        <ul>
-          <li>Cheat, hack, exploit bugs, or interfere with normal gameplay.</li>
-          <li>Modify the game, bypass restrictions, or attempt to gain unauthorized access.</li>
-          <li>Use the Game in a manner that is unlawful or that violates this Agreement.</li>
-        </ul>
-
-        <h3 id="iap">14. In-App Purchases & Advertisements</h3>
-        <p>
-          <strong>In-App Purchases:</strong> All in-app purchases are non-consumable digital goods, including individual level unlocks,
-          level packs, and a one-time all-levels ad-free unlock. All refunds are handled exclusively by Apple or Google.
-        </p>
-        <p>
-          <strong>Advertisements:</strong> The game may display banner advertisements unless an ad-free version is purchased.
-        </p>
-
-        <h3 id="reset">15. Progress Reset</h3>
-        <p>
-          Skyology Technologies LLC reserves the right to reset player progress in cases of abuse, cheating, or technical issues.
-        </p>
-
-        <h3 id="governing">16. Governing Law</h3>
-        <p>
-          This Agreement is governed by the laws of the State of New Jersey.
-        </p>
-
-        <footer>
-          <div>
-            <strong>Whacky Pilot</strong> — Skyology Technologies LLC<br />
-            <span class="small">© <span id="year"></span>. All rights reserved.</span>
-          </div>
-          <div class="small">
-            Tip: Link this page from your app listing and in-app “Legal” menu.<br />
-            File name suggestion: <code>legal.html</code>
-          </div>
-        </footer>
-      </section>
-    </div>
-  </main>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <footer class="footer">© 2026 Skyotechs LLC · Sparkle Car Wash Legal Page</footer>
+  </div>
 </body>
 </html>
+"""
+path = "/mnt/data/sparkle_car_wash_legal_page.html"
+with open(path, "w", encoding="utf-8") as f:
+    f.write(html)
+print(path)
